@@ -14,7 +14,7 @@ int main()
 {
     //init local variables
     int pounds, ounces;
-    double dollars,euros,kilos,ouncesToPounds,totalPounds,dollarsPerPound,eurosPerKilo;
+    double dollars,euros,kilos,dollarsPerPound,eurosPerKilo;
     
     //dialog with user. Get weight and price of item (in pounds/oz and USD)
     cout << "Welcome to Brewster Mitchell's Conversion Program." << endl;
@@ -27,15 +27,19 @@ int main()
     cin >> dollars;
     
     //do conversions
-    totalPounds = (double)pounds + (double)ounces / 16; // convert oz to lb (1lb = 16oz) and add to lbs
-    kilos = totalPounds * 0.4536; // 1 lb = 0.4536 kg
+    kilos =  ((double)pounds + (double)ounces / 16) * 0.4536; // 1 lb = 0.4536 kg
     euros = dollars * 0.6938; // US$1.00 = €0.6938
-    dollarsPerPound = dollars / totalPounds;
+    dollarsPerPound = dollars / ((double)pounds + (double)ounces / 16);
     eurosPerKilo = euros / kilos;
     
     // output conversions as $/lb and €/kg
     cout << "The price of this item is $" << fixed << setprecision(2) << dollarsPerPound << " per pound." << endl;
     cout << "This is equivalent to €" << fixed << setprecision(2) << eurosPerKilo << " per kilo." << endl;
     cout << "Thank you for using Brewster Mitchell's Conversion Program.";
+    
+    // OS-agnostic means of pausing console
+    cout << "Press RETURN to exit.";
+    cin.get(); // clear input buffer
+    cin.ignore();    
     return 0;
 }
