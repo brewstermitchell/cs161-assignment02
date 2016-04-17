@@ -33,8 +33,9 @@ int main()
     eurosPerKilo = euros / kilos;
     
     // output conversions as $/lb and €/kg
-    cout << "The price of this item is $" << fixed << setprecision(2) << dollarsPerPound << " per pound." << endl;
-    cout << "This is equivalent to €" << fixed << setprecision(2) << eurosPerKilo << " per kilo." << endl;
+    cout << fixed << setprecision(2);
+    cout << "The price of this item is $" << dollarsPerPound << " per pound." << endl;
+    cout << "This is equivalent to €" << eurosPerKilo << " per kilo." << endl;
     cout << "Thank you for using Brewster Mitchell's Conversion Program." << endl;
     
     // OS-agnostic means of pausing console
